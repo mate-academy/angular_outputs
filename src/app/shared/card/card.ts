@@ -1,0 +1,12 @@
+import { Component, input, output } from '@angular/core';
+import { StatusCard } from '../../features/dashboard/dashboard';
+
+@Component({
+  selector: 'app-card',
+  imports: [],
+  templateUrl: './card.html',
+  styleUrl: './card.scss',
+})
+export class Card {
+ readonly card = input.required<StatusCard>();
+}
