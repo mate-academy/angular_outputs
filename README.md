@@ -4,45 +4,28 @@ Zadanie z modułu Angular. Repozytorium zawiera kod startowy aplikacji Moonbase 
 
 ## Zadanie
 
-Spraw, aby każda karta statusowa informowała `DashboardComponent`, kiedy zostanie wybrana.
+Spraw, aby każda karta statusowa informowała komponent `Dashboard`, kiedy zostanie wybrana.
 
-### 1. Rozszerz model karty statusowej
-Utwórz typ `StatusCardId`, który będzie zawierał identyfikatory wszystkich czterech kart.
+W kodzie startowym komponent `Card` otrzymuje cały obiekt karty przez input `card`. Każda karta ma już pole `id`, a jej szablon jest elementem `<button>`.
 
-Rozszerz interfejs `StatusCard` o `id`.
+### 1. Dodaj typ identyfikatora karty
+Utwórz typ `StatusCardId`, który zawiera identyfikatory wszystkich czterech kart. Użyj go jako typu pola `id` w interfejsie `StatusCard`.
 
-Dodaj unikalne `id` do każdej zamockowanej karty w `DashboardComponent`.
+### 2. Stwórz output()
+W komponencie `Card` utwórz output o nazwie `selected`. Dodaj metodę, która emituje `card().id`.
 
-### 2. Przekaż identyfikator karty do `CardComponent`
-W `CardComponent` utwórz wymagany input signal o nazwie `cardId`.
-
-Przekaż odpowiedni identyfikator do każdej instancji karty za pomocą property bindingu.
-
-### 3. Stwórz output()
-W `CardComponent` utwórz output o nazwie `selected`.
-
-Dodaj metodę, która emituje identyfikator aktualnej karty.
-
-### 4. Wyemituj event po kliknięciu karty
-Spraw, aby karta była interaktywna, używając przycisku `<button>`.
+### 3. Wyemituj event po kliknięciu karty
+Wywołaj tę metodę po kliknięciu przycisku karty.
 
 💡 Karta powinna jedynie poinformować, że została wybrana.
 
-### 5. Obsłuż event w `DashboardComponent`
-Utwórz sygnał przechowujący identyfikator wybranej karty.
+### 4. Obsłuż event w komponencie `Dashboard`
+Utwórz sygnał przechowujący identyfikator wybranej karty. Utwórz metodę, która aktualizuje ten sygnał. Dodaj binding do outputu `selected` w każdej instancji `app-card`.
 
-Utwórz metodę, która aktualizuje ten signal.
+💡 `$event` zawiera wartość wyemitowaną przez komponent `Card`.
 
-Upewnij się że dodałeś odpowiedni binding w każdej instancji `app-card`
-
-💡 `$event` zawiera wartość wyemitowaną przez `CardComponent`.
-
-### 6. Wyświetl aktualnie wybraną kartę
-Dodaj sekcję z akcjami poniżej kart.
-
-Zanim użytkownik wybierze kartę, wyświetl tekst: “Select a status card to see available action”
-
-Po wybraniu karty wyświetl jej identyfikator lub tytuł w sekcji akcji.
+### 5. Wyświetl aktualnie wybraną kartę
+Dodaj poniżej kart sekcję z informacją o wybranej karcie. Zanim użytkownik wybierze kartę, wyświetl tekst: "Select a card to see available actions." Po wybraniu karty wyświetl jej identyfikator.
 
 ## Jak zacząć
 
